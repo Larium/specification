@@ -21,7 +21,7 @@ class SpecificationTest extends TestCase
 
     public function testAndSpecification()
     {
-        $collection = $this->createCollectionForComposite();
+        $collection = $this->createCollection();
         $heightSpec = new HardCodedSpecification(function (Candidate $candidate) {
             return intval($candidate->get('height')) > 5;
         });
@@ -40,7 +40,7 @@ class SpecificationTest extends TestCase
 
     public function testOrSpecification()
     {
-        $collection = $this->createCollectionForComposite();
+        $collection = $this->createCollection();
         $heightSpec = new HardCodedSpecification(function (Candidate $candidate) {
             return intval($candidate->get('height')) > 5;
         });
@@ -57,7 +57,7 @@ class SpecificationTest extends TestCase
         $this->assertEquals(3, count($data));
     }
 
-    private function createCollectionForComposite()
+    private function createCollection()
     {
         return [
             new Candidate(['height' => 4, 'width' => '2']),

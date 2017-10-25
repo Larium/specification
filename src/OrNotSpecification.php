@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Domain;
 
-class OrNotSpecification
+class OrNotSpecification implements Specification
 {
     private $left;
 
@@ -18,7 +18,7 @@ class OrNotSpecification
 
     public function isSatisfiedBy(Candidate $candidate): bool
     {
-        return !($this->left->isSatisfiedBy($candidate)
-            || $this->right->isSatisfiedBy($candidate));
+        return $this->left->isSatisfiedBy($candidate)
+            || $this->right->isSatisfiedBy($candidate) != true;
     }
 }
