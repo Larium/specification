@@ -1,0 +1,19 @@
+{
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.1.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Domain\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "Domain\\": "tests/"
+        }
+    }
+}
