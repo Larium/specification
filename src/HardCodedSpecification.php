@@ -4,7 +4,16 @@ declare(strict_types = 1);
 
 namespace Domain;
 
-class HardCodedSpecification implements Specification
+/**
+ * HardCodedSpecification class.
+ *
+ * Implemented by coding the selection criteria into the isSatisfiedBy method
+ * as a block of code.
+ *
+ * @link https://martinfowler.com/apsupp/spec.pdf Specifications page 8.
+ * @author Andreas Kollaros <andreas@larium.net>
+ */
+final class HardCodedSpecification extends CombineSpecification
 {
     private $callable;
 
