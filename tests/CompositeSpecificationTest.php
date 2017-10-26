@@ -26,6 +26,24 @@ class CompositeSpecificationTest extends TestCase
         $this->assertEquals(2, count($data));
     }
 
+    public function testRemainderUnsatisfiedBy()
+    {
+        $heightSpec = new HardCodedSpecification(function (Candidate $candidate) {
+            return intval($candidate->get('height')) > 5;
+        });
+        $widthSpec = new HardCodedSpecification(function (Candidate $candidate) {
+            return intval($candidate->get('width')) >= 5;
+        });
+
+        $spec = new CompositeSpecification($heightSpec, $widthSpec);
+
+        $candidate = new Candidate(['height' => 6, 'width' => '4']);
+
+        $unsatisfied = $spec->remainderUnsatisfiedBy($candidate);
+
+        print_r($unsatisfied);
+    }
+
     private function createCollection()
     {
         return [

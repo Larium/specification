@@ -23,4 +23,20 @@ class CompositeSpecification extends CombineSpecification
 
         return true;
     }
+
+    public function remainderUnsatisfiedBy(Candidate $candidate): ?Specification
+    {
+        if ($this->isSatisfiedBy($candidate)) {
+            return null;
+        }
+
+        $unsatisfied = [];
+        foreach ($this->specifications as $specification) {
+            if (!$specification->isSatisfiedBy($candidate)) {
+                $unsatisfied[] = $specification;
+            }
+        }
+
+        return new static(...$unsatisfied);
+    }
 }
