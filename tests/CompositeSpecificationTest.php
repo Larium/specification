@@ -28,12 +28,8 @@ class CompositeSpecificationTest extends TestCase
 
     public function testRemainderUnsatisfiedBy()
     {
-        $heightSpec = new HardCodedSpecification(function (Candidate $candidate) {
-            return intval($candidate->get('height')) > 5;
-        });
-        $widthSpec = new HardCodedSpecification(function (Candidate $candidate) {
-            return intval($candidate->get('width')) >= 5;
-        });
+        $heightSpec = new GreaterSpecification('height', '5');
+        $widthSpec = new GreaterOrEqualSpecification('width', '5');
 
         $spec = new CompositeSpecification($heightSpec, $widthSpec);
 
