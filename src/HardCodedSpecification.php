@@ -13,7 +13,7 @@ namespace Domain;
  * @link https://martinfowler.com/apsupp/spec.pdf Specifications page 8.
  * @author Andreas Kollaros <andreas@larium.net>
  */
-final class HardCodedSpecification extends CombineSpecification
+final class HardCodedSpecification extends LeafSpecification
 {
     private $callable;
 

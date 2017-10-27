@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Domain;
 
-class CompositeSpecification extends CombineSpecification
+class CompositeSpecification extends LeafSpecification
 {
     private $specifications = [];
 

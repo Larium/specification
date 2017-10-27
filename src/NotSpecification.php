@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Domain;
 
-class NotSpecification extends CombineSpecification
+class NotSpecification extends LeafSpecification
 {
     private $wrapped;
 

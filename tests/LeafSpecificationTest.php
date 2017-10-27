@@ -6,9 +6,9 @@ namespace Domain;
 
 use PHPUnit\Framework\TestCase;
 
-class CombineSpecificationTest extends TestCase
+class LeafSpecificationTest extends TestCase
 {
-    public function testAndOperatorForCombineSpecification()
+    public function testAndOperatorForLeafSpecification()
     {
         $minHeightSpec = new MinHeightSpecification();
         $widthSpec = new HardCodedSpecification(function (Candidate $candidate) {
@@ -24,7 +24,7 @@ class CombineSpecificationTest extends TestCase
         $this->assertEquals(1, count($data));
     }
 
-    public function testOrOperatorForCombineSpecification()
+    public function testOrOperatorForLeafSpecification()
     {
         $minHeightSpec = new MinHeightSpecification();
         $widthSpec = new HardCodedSpecification(function (Candidate $candidate) {
@@ -40,7 +40,7 @@ class CombineSpecificationTest extends TestCase
         $this->assertEquals(3, count($data));
     }
 
-    public function testOrNotOperatorForCombineSpecification()
+    public function testOrNotOperatorForLeafSpecification()
     {
         $minHeightSpec = new MinHeightSpecification();
         $widthSpec = new HardCodedSpecification(function (Candidate $candidate) {
@@ -56,7 +56,7 @@ class CombineSpecificationTest extends TestCase
         $this->assertEquals(4, count($data));
     }
 
-    public function testAndNotOperatorForCombineSpecification()
+    public function testAndNotOperatorForLeafSpecification()
     {
         $minHeightSpec = new MinHeightSpecification();
         $widthSpec = new HardCodedSpecification(function (Candidate $candidate) {
@@ -72,7 +72,7 @@ class CombineSpecificationTest extends TestCase
         $this->assertEquals(2, count($data));
     }
 
-    public function testNotOperatorForCombineSpecification()
+    public function testNotOperatorForLeafSpecification()
     {
         $minHeightSpec = new MinHeightSpecification();
 

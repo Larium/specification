@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Domain;
 
-abstract class CombineSpecification implements Specification
+abstract class LeafSpecification implements Specification
 {
     abstract public function isSatisfiedBy(Candidate $candidate): bool;
 

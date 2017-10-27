@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Domain;
 
-class OrSpecification extends CombineSpecification
+class OrSpecification extends LeafSpecification
 {
     private $left;
 
