@@ -25,4 +25,44 @@ abstract class ValueBoundSpecification extends CombineSpecification
     {
         return $this->value;
     }
+
+    public function isGeneralizationOf(Specification $specification): bool
+    {
+        return $this->subsumptionProcess('isGeneralizationOf', $specification);
+    }
+
+    public function isSpecialCaseOf(Specification $specification): bool
+    {
+        return $this->subsumptionProcess('isSpecialCaseOf', $specification);
+    }
+
+    private function subsumptionProcess(string $type, ValueBoundSpecification $specification): bool
+    {
+        $parentClasses = $this->getBaseNameOfParentClasses(get_class($specification));
+
+        foreach ($parentClasses as $name) {
+            $method = sprintf('%s%s', $type, $name);
+
+            if (is_callable([$this, $method])) {
+                return $this->$method($specification);
+            }
+        }
+
+        return false;
+    }
+
+    private function getBaseNameOfParentClasses(string $specificationClass): array
+    {
+        $parents = class_parents($specificationClass);
+        array_unshift($parents, $this->getClassBaseName($specificationClass));
+
+        return array_map([$this, 'getClassBaseName'], $parents);
+    }
+
+    private function getClassBaseName(string $className): string
+    {
+        $parts = explode('\\', $className);
+
+        return end($parts);
+    }
 }

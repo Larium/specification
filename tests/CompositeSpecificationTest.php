@@ -28,8 +28,8 @@ class CompositeSpecificationTest extends TestCase
 
     public function testRemainderUnsatisfiedBy()
     {
-        $heightSpec = new GreaterSpecification('height', '5');
-        $widthSpec = new GreaterOrEqualSpecification('width', '5');
+        $heightSpec = new GreaterThanSpecification('height', '5');
+        $widthSpec = new GreaterThanOrEqualSpecification('width', '5');
 
         $spec = new CompositeSpecification($heightSpec, $widthSpec);
 
@@ -37,7 +37,7 @@ class CompositeSpecificationTest extends TestCase
 
         $unsatisfied = $spec->remainderUnsatisfiedBy($candidate);
 
-        print_r($unsatisfied);
+        $this->assertNotNull($unsatisfied);
     }
 
     private function createCollection()
