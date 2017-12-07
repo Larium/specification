@@ -31,7 +31,7 @@ abstract class ValueBoundSpecification extends LeafSpecification
         return $this->subsumptionProcess('isGeneralizationOf', $specification);
     }
 
-    public function isSpecialCaseOf(Specification $specification): bool
+    public function isSpecialCaseOf(ValueBoundSpecification $specification): bool
     {
         return $this->subsumptionProcess('isSpecialCaseOf', $specification);
     }

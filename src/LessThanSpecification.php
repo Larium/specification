@@ -11,8 +11,14 @@ class LessThanSpecification extends ValueBoundSpecification
         return $candidate->get($this->getAttribute()) < $this->getValue();
     }
 
-    public function isSpecialCaseOf(ValueBoundSpecification $specification): bool
+    public function isSpecialCaseOfLessThanOrEqualSpecification(ValueBoundSpecification $specification): bool
     {
-        return $this->getValue() < $specification->getValue();
+        return $this->getAttribute() === $specification->getAttribute()
+            && $this->getValue() <= $specification->getValue();
+    }
+
+    public function isSpecialCaseOfLessThanSpecification(ValueBoundSpecification $specification): bool
+    {
+        return $this->isSpecialCaseOfLessThanOrEqualSpecification();
     }
 }
