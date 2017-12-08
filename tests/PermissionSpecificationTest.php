@@ -10,15 +10,25 @@ class PermissionSpecificationTest extends TestCase
 {
     public function testShouldHandleACLPermissions()
     {
-        # User permission element.
-        $resource = 'payments';
-        $actions = ['read', 'list'];
+        $permissions = [
+            [
+                'resource' => 'payments',
+                'actions' => ['read', 'write']
+            ],
+            [
+                'resource' => 'merchants',
+                'actions' => ['read']
+            ]
+        ];
 
-        # Spec created from User permissions.
-        $spec = new CompositeSpecification(
-            new EqualSpecification('resource', $resource),
-            new ContainsSpecification('action', $actions)
-        );
+        $spec = array_reduce($permissions, function ($carry, $item) {
+            $spec = new CompositeSpecification(
+                new ResourcePermissionSpecification($item['resource']),
+                new ActionPermissionSpecification($item['actions'])
+            );
+
+            return $carry = $carry ? $carry->or($spec) : $spec;
+        });
 
         $candidate = new Candidate([
             'resource' => 'payments',
