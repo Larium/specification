@@ -11,8 +11,26 @@ class LessThanOrEqualSpecification extends ValueBoundSpecification
         return $candidate->get($this->getAttribute()) <= $this->getValue();
     }
 
-    public function isGeneralizationOfValueBoundSpecification(ValueBoundSpecification $specification): bool
+    public function isSpecialCaseOfLessThanOrEqualSpecification(ValueBoundSpecification $specification): bool
     {
-        return $specification->isSpecialCaseOfLessThanOrEqualSpecification($this);
+        return $this->getAttribute() === $specification->getAttribute()
+            && $this->getValue() <= $specification->getValue();
+    }
+
+    public function isSpecialCaseOfLessThanSpecification(ValueBoundSpecification $specification): bool
+    {
+        return $this->getAttribute() === $specification->getAttribute()
+            && $this->getValue() < $specification->getValue();
+    }
+
+    public function isGeneralizationOfLessThanOrEqualSpecification(ValueBoundSpecification $specification): bool
+    {
+        return $this->getAttribute() === $specification->getAttribute()
+            && $this->getValue() >= $specification->getValue();
+    }
+
+    public function isGeneralizationOfLessThanSpecification(ValueBoundSpecification $specification): bool
+    {
+        return $this->isGeneralizationOfLessThanOrEqualSpecification($specification);
     }
 }

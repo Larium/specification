@@ -19,6 +19,6 @@ class AndNotSpecification extends LeafSpecification
     public function isSatisfiedBy(Candidate $candidate): bool
     {
         return $this->left->isSatisfiedBy($candidate)
-            && $this->right->isSatisfiedBy($candidate) != true;
+            && $this->right->isSatisfiedBy($candidate) !== true;
     }
 }

@@ -19,6 +19,6 @@ class LessThanSpecification extends ValueBoundSpecification
 
     public function isSpecialCaseOfLessThanSpecification(ValueBoundSpecification $specification): bool
     {
-        return $this->isSpecialCaseOfLessThanOrEqualSpecification();
+        return $this->isSpecialCaseOfLessThanOrEqualSpecification($specification);
     }
 }

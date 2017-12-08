@@ -26,7 +26,7 @@ abstract class ValueBoundSpecification extends LeafSpecification
         return $this->value;
     }
 
-    public function isGeneralizationOf(Specification $specification): bool
+    public function isGeneralizationOf(ValueBoundSpecification $specification): bool
     {
         return $this->subsumptionProcess('isGeneralizationOf', $specification);
     }
