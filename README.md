@@ -1,3 +1,5 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Larium/specification/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Larium/specification/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/Larium/specification/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Larium/specification/?branch=master) [![Build Status](https://travis-ci.com/Larium/specification.svg?branch=master)](https://travis-ci.com/Larium/specification)
+
 # An implementation of Specification pattern.
 
 ## Installation
