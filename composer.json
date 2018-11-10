@@ -1,4 +1,16 @@
 {
+
+    "name": "larium/specification",
+    "description": "An implementation of Specification pattern",
+    "keywords": ["specification", "design", "pattern", "rules"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreas Kollaros",
+            "email": "andreas@larium.net"
+        }
+    ],
     "require": {
         "php": ">=7.2"
     },
