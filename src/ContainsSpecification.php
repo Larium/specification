@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Domain;
+namespace Larium\Specification;
 
 class ContainsSpecification extends ValueBoundSpecification
 {
