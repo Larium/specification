@@ -3,7 +3,7 @@
 # An implementation of Specification pattern.
 
 ## Installation
-You can install this library using [Composer](http://getcomposer.org)
+You can install this library using [Composer](https://getcomposer.org)
 
 Information about how to install composer you can find in [official](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos) website.
 
@@ -16,8 +16,8 @@ $ composer require "larium/specification":"@stable"
 Include require line in your ```composer.json``` file
 ```json
 {
-	"require": {
-    	"larium/specification": "@stable"
+    "require": {
+        "larium/specification": "@stable"
     }
 }
 ```
@@ -31,3 +31,5 @@ After this you must require autoload file from composer.
 <?php
 require_once 'vendor/autoload.php';
 ```
+
+See full documentation at  [https://specification.larium.net](https://specification.larium.net)
